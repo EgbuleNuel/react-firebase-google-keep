@@ -68,17 +68,23 @@ const Note = () => {
         />
         <textarea
           name="content"
-          rows="4"
+          rows="1"
           placeholder="Type Note Here..."
           onChange={handleChange}
           value={addNote.content}
           required
         ></textarea>
         <div style={{ display: "flex" }}>
-          <button type="submit">Submit</button>
-          <button style={{ marginLeft: "10px" }} type="button">
-            Update
-          </button>
+          <div style={{ display: "flex" }}>
+            <button type="submit">Submit</button>
+            <button
+              style={{ marginLeft: "10px" }}
+              type="button"
+              onClick={() => updatedNote(id)}
+            >
+              Update
+            </button>
+          </div>
         </div>
       </form>
       <div className="note-container">

@@ -5,16 +5,23 @@ const DisplayNote = (props) => {
     props.getId(id);
   };
 
-  const handleUpdate = (note) => {
-    props.getUpdateNoteID(note);
+  const handleUpdate = (id) => {
+    props.getUpdateNoteID(id);
   };
   return (
     <div className="note" key={props.id}>
       <p className="title">{props.title}</p>
       <p className="content">{props.content}</p>
       <button onClick={() => handleCLick(props.id)}>Delete</button>
-      <button style={{marginLeft: "10px"}} type="button" onClick={() => handleUpdate(props.id)}>
-        Update
+      <button
+        style={{ marginLeft: "10px" }}
+        type="button"
+        onClick={() =>
+          handleUpdate({ content: props.content, title: props.title })
+        }
+        id={props.id}
+      >
+        Edit
       </button>
     </div>
   );
